@@ -10,4 +10,4 @@ module Rack
   end
 end
 
-Rack::Throttle::Limiter.extend(Rack::Throttle::Capped::Limiter)
+Rack::Throttle::Limiter.prepend(Rack::Throttle::Capped::Limiter)

@@ -16,7 +16,8 @@ module Rack
         end
 
         def []= (k, v)
-          @cache.slice!(@cache.keys.sort.reverse[0..cap-1])
+          keys = @cache.keys.sort.reverse[0..cap-1]
+          @cache = @cache.select{|k, v| keys.include?(k) }
           @cache[k] = v
         end
 
